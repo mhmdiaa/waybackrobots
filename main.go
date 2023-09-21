@@ -119,10 +119,10 @@ func GetRobotsTxtVersions(url string, limit int, recent bool) ([]string, error) 
 			selectedVersions = append(selectedVersions, version...)
 		}
 	} else {
-		interval := (length + limit - 1) / limit
+		interval := length / (limit - 1)
 
 		for i := 0; i < limit; i++ {
-			index := length - 1 - (i * interval)
+			index := i * interval
 			if index >= length {
 				index = length - (limit - i)
 			}
